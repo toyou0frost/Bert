@@ -1,0 +1,4 @@
+.home__inputContainer {
+    display: flex;
+    flex-direction: column;
+  }
