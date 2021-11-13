@@ -1,20 +1,25 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from './pages/Home';
+import Main from './components/Screens/Main';
+import styled from 'styled-components';
+import SideBar from './components/Semantic/SideBar';
+
+const AppStyle = styled.div`
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  li{
+    list-style: none;
+  }
+`
 
 function App() {
   return (
-    <div className="app">
-      <Router>
-        <Switch>
-          <Route path="/search">
-            {/* 검색 페이지 */}
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+    <div>
+      <AppStyle>
+        <Main />
+        <SideBar />
+      </AppStyle>
     </div>
   );
 }
