@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import GoogleSearchAPI from "../GetAPI/GoogleSearchAPI";
+import CompilerAPI from "../GetAPI/CompilerAPI";
 
 const MainStyle = styled.div`
   .search_main {
     display: flex;
     margin: 1vh 0;
     justify-content: center;
+  }
+  .search_main > *{
+    padding: 5px;
   }
   .search_main > button{
     cursor: pointer;
@@ -42,6 +46,9 @@ function Main() {
   const [isSearch, setIsSearch] = useState(false);
 
   const Click_Search_Button = () => {
+    if(document.getElementById("data").value === ""){
+      return
+    }
     setSearchInput(document.getElementById("data").value);
     setIsSearch(true);
   }

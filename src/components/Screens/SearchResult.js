@@ -17,7 +17,7 @@ const ShowSearchResult = (props) => {
             }
         }
     }
-    useEffect(() => { // useEffect 실행 후 다시 처음부터 코드가 실행됨!!
+    useEffect(() => { // useEffect 실행 후 다시 처음부터 코드가 실행됨
         if(props.searchdata !== undefined){
             setIsGet(true);    
         }

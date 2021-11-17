@@ -31,11 +31,16 @@ const SideBar = () => {
             <SideBarStyle>
                 <div className="sidebar_main">
                     <ul>
-                        <li onClick={(e) => {OnClick("html")}}><img className="icon" src="img/HTMLicon.png" alt="html" /></li>
-                        <li onClick={(e) => {OnClick("css")}}><img className="icon" src="img/CSSicon.png" alt="css" /></li>
-                        <li onClick={(e) => {OnClick("javascript")}}><img className="icon" src="img/JSicon.png" alt="js" /></li>
-                        <li onClick={(e) => {OnClick("xml")}}><img className="icon" src="img/XMLicon.png" alt="xml" /></li>
-                        <li onClick={(e) => {OnClick("c")}}><img className="icon" src="img/Cicon.png" alt="c" /></li>
+                        <li onClick={() => {OnClick("c")}}><img className="icon" src="img/HTMLicon.png" alt="c" /></li>
+                        <li onClick={() => {OnClick("cpp")}}><img className="icon" src="img/JSicon.png" alt="cpp" /></li>
+                        <li onClick={() => {OnClick("csharp")}}><img className="icon" src="img/XMLicon.png" alt="csharp" /></li>
+                        <li onClick={() => {OnClick("objective-c")}}><img className="icon" src="img/JSicon.png" alt="objective-c" /></li>
+                        <li onClick={() => {OnClick("java")}}><img className="icon" src="img/CSSicon.png" alt="java" /></li>
+                        <li onClick={() => {OnClick("javascript")}}><img className="icon" src="img/CSSicon.png" alt="javascript" /></li>
+                        <li onClick={() => {OnClick("php")}}><img className="icon" src="img/HTMLicon.png" alt="php" /></li>
+                        <li onClick={() => {OnClick("python")}}><img className="icon" src="img/HTMLicon.png" alt="python" /></li>
+                        <li onClick={() => {OnClick("ruby")}}><img className="icon" src="img/CSSicon.png" alt="ruby" /></li>
+                        <li onClick={() => {OnClick("r")}}><img className="icon" src="img/HTMLicon.png" alt="r" /></li>
                     </ul>
                 </div>
             </SideBarStyle>
