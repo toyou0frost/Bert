@@ -26,6 +26,7 @@ const CompileResultStyle = styled.div`
         padding: 0.5vh 3.5vh;
         color: white;
         background-color: #676767;
+        box-shadow: 5px 5px 5px black;
     }
     .compileresult_main_top > :last-child > h4{
         letter-spacing: 1.5px;
@@ -33,6 +34,7 @@ const CompileResultStyle = styled.div`
         padding: 0.5vh 3.5vh;
         color: white;
         background-color: #676767;
+        box-shadow: 5px 5px 5px black;
     }
     .compileresult_main_center{
         overflow: scroll;
@@ -63,6 +65,7 @@ const CompileResultStyle = styled.div`
         background-color: rgba(154, 164, 205, 1);
         font-size: 1.3em;
         padding: 1vh 3vh;
+        box-shadow: 3px 3px 3px black;
     }
     .compileresult_main_bottom > .compile_btn:active{
         background-color: rgba(154, 164, 205, 0.7);
@@ -76,6 +79,7 @@ const CompileResultStyle = styled.div`
         background-color: rgba(179, 97, 97, 1);
         font-size: 1.3em;
         padding: 1vh 3vh;
+        box-shadow: 3px 3px 3px black;
     }
     .compileresult_main_bottom > .exit_btn:active{
         background-color: rgba(179, 97, 97, 0.7);
@@ -111,7 +115,7 @@ const CodeEditor = (props) => {
     }
 
     function exit(){
-        document.getElementsByClassName("sidebar_main")[0].style.backgroundColor = "#525252";
+        document.getElementsByClassName("sidebar_main")[0].style.background = "linear-gradient(#525252 50%, #525252 50%)";
         setIsExit(true);
         props.setIsClick(false);
     }

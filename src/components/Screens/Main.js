@@ -14,30 +14,36 @@ const MainStyle = styled.div`
   }
   .search_main > button{
     cursor: pointer;
-    border: 2px solid black;
-    height: 5vh;
+    border: none;
+    height: 6vh;
     border-left: none;
     border-radius: 0 10px 10px 0;
-    background-color: gray;
+    background-color: rgba(175, 172, 172, 1);
+    box-shadow: 5px 5px 5px black;
   }
   .search_main > button:active{
-    background-color: #eee;
+    background-color: rgba(175, 172, 172, 0.7);
   }
   .search_main > button > img{
     height: 3vh;
     user-select: none;
   }
   .search_main > input[type=text]{
-    color: white;
-    border: 2px solid black;
+    color: #e6e6e6;
+    font-size: 1em;
+    border: none;  
     width: 40vw;
-    height: 5vh;
+    height: 6vh;
     border-right: none;
     border-radius: 10px 0 0 10px;
-    background-color: gray;
+    background-color: rgba(175, 172, 172, 1);
+    box-shadow: 5px 5px 5px black;
+  }
+  .search_main > input[type=text]:focus-visible{
+    outline: none;
   }
   input::placeholder {
-    color: white;
+    color: #e6e6e6;
   }
   .search_logo{
     margin-top: 10vh;

@@ -1,6 +1,7 @@
 import Main from './components/Screens/Main';
 import styled from 'styled-components';
 import SideBar from './components/Semantic/SideBar';
+import StickyBox from "react-sticky-box";
 
 const AppStyle = styled.div`
   *{
@@ -26,8 +27,10 @@ function App() {
           <div className="app_main_Main">
             <Main />
           </div>
-          <div className="app_main_SideBar">
-            <SideBar />
+          <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+            <StickyBox>
+              <SideBar />
+            </StickyBox>
           </div>
         </div>
       </AppStyle>

@@ -12,7 +12,7 @@ const SideBarStyle = styled.div`
     .sidebar_main > ul{
         border-radius: 30px 0 0 30px;
         background-color: #afacac;
-        
+        box-shadow: 5px 5px 5px 5px;
     }
     .icon{
         padding: 1vh 2vh;
@@ -30,7 +30,7 @@ const SideBar = () => {
     const OnClick = (language) => {
         setIsClick(true);
         setLanguage(language);
-        document.getElementsByClassName("sidebar_main")[0].style.backgroundColor = "#676767";
+        document.getElementsByClassName("sidebar_main")[0].style.background = "linear-gradient(#1e1e1e 70%, #676767 30%)";
     }
 
     return (

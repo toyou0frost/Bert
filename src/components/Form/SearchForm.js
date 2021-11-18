@@ -13,6 +13,7 @@ const SearchFormStyle = styled.div`
         background-color: #afacac;
         margin-bottom: 3vh;
         border-radius: 10px;
+        box-shadow: 2px 2px 2px 2px;
     }
     .searchform_main > a {
         font-size: 1.3em;
@@ -30,12 +31,12 @@ const SearchFormStyle = styled.div`
     }
 `
 const SearchForm = (props) => {
-    const link = props.link.substring(0, 50);
+    const link = props.link.substring(0, 25);
     return(
         <SearchFormStyle>
             <div>
                 <div className="searchform_main">
-                    <a href={props.link} target="_blank"> {/* 테스트용 실제로는 target속성 X*/}                       
+                    <a href={props.link} target="_blank">                      
                         <cite>{link}</cite>
                         <div dangerouslySetInnerHTML={{__html: props.htmlTitle}}></div>
                     </a>

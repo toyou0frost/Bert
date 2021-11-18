@@ -5,7 +5,6 @@ const CompilerAPI = (props) => {
     let LANG = "JAVASCRIPT_NODE";
     const SOURCE = props.source;
     props.setIsClick(false);
-
     switch(props.lang){
         case "c":
             LANG = "C";
@@ -43,6 +42,11 @@ const CompilerAPI = (props) => {
     }
 
     useEffect (() => {
+        if(SOURCE === ""){
+            props.setResult(SOURCE);
+            props.setIsGo(Math.random(100));
+            return
+        }
         Compile()
     },)
 
