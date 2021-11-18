@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+
 import GoogleSearchAPI from "../GetAPI/GoogleSearchAPI";
-import CompilerAPI from "../GetAPI/CompilerAPI";
 
 const MainStyle = styled.div`
   .search_main {
@@ -39,6 +39,22 @@ const MainStyle = styled.div`
   input::placeholder {
     color: white;
   }
+  .search_logo{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+  }
+  .search_main_logo{
+    height: 35vh;
+  }
+  .search_main_searchlogo{
+    cursor: pointer;
+    padding: 0;
+    height: 7vh;
+  }
+  .search_main_isSearch{
+    margin-top: 3vh;
+  }
 `
 
 function Main() {
@@ -64,13 +80,30 @@ function Main() {
     });
   })
 
+  const Main_Page = () => {
+    setIsSearch(false);
+  }
+
   return (
     <div className="Main">
       <MainStyle>
+        {isSearch === false ? 
+        <div className="search_logo">
+          <img src="img/logo1.png" alt="main_logo" className="search_main_logo" />
+        </div>
+        : ""}
+        {isSearch === false ? 
         <div className="search_main">
           <input id="data" placeholder="type in the search word" type="text"/>
           <button id="inputbtn" onClick={Click_Search_Button}><img src="img/search_btn.png" alt="검색" /></button>
         </div>  
+        : 
+        <div className="search_main search_main_isSearch">
+          <img src="img/logo3.png" alt="searchlogo" onClick={Main_Page} className="search_main_searchlogo"/>
+          <input id="data" placeholder="type in the search word" type="text"/>
+          <button id="inputbtn" onClick={Click_Search_Button}><img src="img/search_btn.png" alt="검색" /></button>
+        </div>  
+        }
         {isSearch === true ? <GoogleSearchAPI getSearchInput={searchInput} /> : ''}
         </MainStyle>
     </div>

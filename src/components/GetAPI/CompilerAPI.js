@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-
 const CompilerAPI = (props) => {
     const CLIENT_SECRET = "9b4dc5ea7d6969c91aaafb57c7b5307a2047c4db";
     let LANG = "JAVASCRIPT_NODE";
     const SOURCE = props.source;
+    props.setIsClick(false);
 
     switch(props.lang){
         case "c":
@@ -103,6 +103,11 @@ const CompilerAPI = (props) => {
         })
         .then((data) => {
             //data.result.run_status.output
+            if(data.result.compile_status !== "OK"){
+                props.setResult(data.result.compile_status);
+                props.setIsGo(data);
+                return
+            }
             if(data.result.run_status.output === null){
                 GetResult(data.status_update_url);
                 return
@@ -120,12 +125,13 @@ const CompilerAPI = (props) => {
         reader.overrideMimeType('text/plain; charset=utf-8');
         reader.onload = function() {
             if (reader.status == 200) {
-                console.log(reader.responseText);
+                props.setResult(reader.responseText);
+                props.setIsGo(URL);
             };
         };
         reader.send(null);
     }
-    return (
+    return(
         <div></div>
     )
 }

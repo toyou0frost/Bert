@@ -9,7 +9,10 @@ const SearchFormStyle = styled.div`
     .searchform_main{
         border: 1px solid gray;
         padding: 1.5vh 1.5vw;
-        width: 70vw;
+        width: 50vw;
+        background-color: #afacac;
+        margin-bottom: 3vh;
+        border-radius: 10px;
     }
     .searchform_main > a {
         font-size: 1.3em;

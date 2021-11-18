@@ -11,14 +11,25 @@ const AppStyle = styled.div`
   li{
     list-style: none;
   }
+  .app_main{
+    display: flex;
+    justify-content: space-between;
+  }
 `
 
 function App() {
   return (
     <div>
       <AppStyle>
-        <Main />
-        <SideBar />
+        <div className="app_main">
+          <div></div>
+          <div className="app_main_Main">
+            <Main />
+          </div>
+          <div className="app_main_SideBar">
+            <SideBar />
+          </div>
+        </div>
       </AppStyle>
     </div>
   );

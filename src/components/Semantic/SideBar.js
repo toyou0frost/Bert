@@ -5,47 +5,52 @@ import CodeEditor from "../Function/CodeEditor";
 
 const SideBarStyle = styled.div`
     .sidebar_main{
-        position: fixed;
-        padding: 1.5vh 1.5vw;
-        border-left: 2px solid gray;
-        border-bottom: 2px solid gray;
+        height: 100vh;
+        background-color: #525252;
+        display: flex;
+    }
+    .sidebar_main > ul{
+        border-radius: 30px 0 0 30px;
+        background-color: #afacac;
+        
     }
     .icon{
-        padding-bottom: 1.5vh;
-        width: 5vw;
+        padding: 1vh 2vh;
+        height: 8vh;
+    }
+    li{
+        cursor: pointer;
     }
 `
 
 const SideBar = () => {
     const [language, setLanguage] = useState("javascript");
     const [isClick, setIsClick] = useState(false);
-
+    
     const OnClick = (language) => {
-        console.log(language);
         setIsClick(true);
         setLanguage(language);
+        document.getElementsByClassName("sidebar_main")[0].style.backgroundColor = "#676767";
     }
 
     return (
-        <div className="SideBar">
-            <SideBarStyle>
-                <div className="sidebar_main">
+        <SideBarStyle className="SideBar">   
+                <div className="sidebar_main"> 
+                    {isClick === true ? <CodeEditor language={language} setIsClick={setIsClick} /> : "" }            
                     <ul>
-                        <li onClick={() => {OnClick("c")}}><img className="icon" src="img/HTMLicon.png" alt="c" /></li>
-                        <li onClick={() => {OnClick("cpp")}}><img className="icon" src="img/JSicon.png" alt="cpp" /></li>
-                        <li onClick={() => {OnClick("csharp")}}><img className="icon" src="img/XMLicon.png" alt="csharp" /></li>
-                        <li onClick={() => {OnClick("objective-c")}}><img className="icon" src="img/JSicon.png" alt="objective-c" /></li>
-                        <li onClick={() => {OnClick("java")}}><img className="icon" src="img/CSSicon.png" alt="java" /></li>
-                        <li onClick={() => {OnClick("javascript")}}><img className="icon" src="img/CSSicon.png" alt="javascript" /></li>
-                        <li onClick={() => {OnClick("php")}}><img className="icon" src="img/HTMLicon.png" alt="php" /></li>
-                        <li onClick={() => {OnClick("python")}}><img className="icon" src="img/HTMLicon.png" alt="python" /></li>
-                        <li onClick={() => {OnClick("ruby")}}><img className="icon" src="img/CSSicon.png" alt="ruby" /></li>
-                        <li onClick={() => {OnClick("r")}}><img className="icon" src="img/HTMLicon.png" alt="r" /></li>
+                        <li title="C" onClick={() => {OnClick("c")}}><img className="icon" src="img/CIcon.png" alt="c" /></li>
+                        <li title="Cpp" onClick={() => {OnClick("cpp")}}><img className="icon" src="img/CPPIcon.png" alt="cpp" /></li>
+                        <li title="C#" onClick={() => {OnClick("csharp")}}><img className="icon" src="img/CSHARPIcon.png" alt="csharp" /></li>
+                        <li title="Objective-C" onClick={() => {OnClick("objective-c")}}><img className="icon" src="img/OCIcon.png" alt="objective-c" /></li>
+                        <li title="JAVA" onClick={() => {OnClick("java")}}><img className="icon" src="img/JAVAIcon.png" alt="java" /></li>
+                        <li title="JavaScript" onClick={() => {OnClick("javascript")}}><img className="icon" src="img/JSIcon.png" alt="javascript" /></li>
+                        <li title="PHP" onClick={() => {OnClick("php")}}><img className="icon" src="img/PHPIcon.png" alt="php" /></li>
+                        <li title="Python" onClick={() => {OnClick("python")}}><img className="icon" src="img/PYTHONIcon.png" alt="python" /></li>
+                        <li title="Ruby" onClick={() => {OnClick("ruby")}}><img className="icon" src="img/RUBYIcon.png" alt="ruby" /></li>
+                        <li title="R" onClick={() => {OnClick("r")}}><img className="icon" src="img/RIcon.png" alt="r" /></li>
                     </ul>
                 </div>
-            </SideBarStyle>
-            {isClick === true ? <CodeEditor language={language} /> : "" }
-        </div>
+        </SideBarStyle>
     )
 }
 
