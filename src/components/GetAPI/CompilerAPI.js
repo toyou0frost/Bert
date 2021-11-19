@@ -5,6 +5,7 @@ const CompilerAPI = (props) => {
     let LANG = "JAVASCRIPT_NODE";
     const SOURCE = props.source;
     props.setIsClick(false);
+
     switch(props.lang){
         case "c":
             LANG = "C";
@@ -107,6 +108,10 @@ const CompilerAPI = (props) => {
         })
         .then((data) => {
             //data.result.run_status.output
+            if(data.result.compile_status === null){
+                GetResult(data.status_update_url);
+                return
+            }
             if(data.result.compile_status !== "OK"){
                 props.setResult(data.result.compile_status);
                 props.setIsGo(data);

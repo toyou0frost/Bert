@@ -94,10 +94,9 @@ const CodeEditor = (props) => {
     const [isGet, setIsGet] = useState(false);
     const [isGo, setIsGo] = useState("");
     const [compile, setCompile] = useState(false);
-    const [isExit, setIsExit] = useState(false);
 
     const editorRef = useRef(null);
-    
+
     useEffect (() => {
         if(result !== undefined){
             setIsGet(true);
@@ -117,18 +116,18 @@ const CodeEditor = (props) => {
 
     function exit(){
         document.getElementsByClassName("sidebar_main")[0].style.background = "linear-gradient(#525252 50%, #525252 50%)";
-        setIsExit(true);
+        props.setIsExit(true);
         props.setIsClick(false);
     }
 
     return(
         <div className="CodeEditor">
-            {isExit === false ? 
+            {props.isExit === false ? 
             <div>
                 <Editor
                 height="55vh"
                 width="35vw"
-                defaultLanguage={props.language}
+                language={props.language}
                 line="2"
                 theme="vs-dark"
                 options={{
