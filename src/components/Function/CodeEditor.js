@@ -24,6 +24,7 @@ const CompileResultStyle = styled.div`
         letter-spacing: 1.5px;
         border-radius: 7px 7px 0 0;
         padding: 1vh 3.5vh;
+        padding-top: 1.5vh;
         color: white;
         background-color: #676767;
         box-shadow: 5px 5px 5px black;
@@ -34,7 +35,7 @@ const CompileResultStyle = styled.div`
         padding: 1vh 3.5vh;
         color: white;
         background-color: #676767;
-        box-shadow: 5px 5px 5px black;
+        /* box-shadow: 0px 0px 0px black; */
     }
     .compileresult_main_center{
         overflow: scroll;
@@ -144,10 +145,10 @@ const CodeEditor = (props) => {
                         <div className="compileresult_main">
                             <div className="compileresult_main_top">
                                 <div>
-                                    <h4>실행결과</h4>
+                                    <h4>실행결과 ( {props.language} )</h4>
                                 </div>
                                 <div>
-                                    <h4>{props.language}</h4>
+                                    {/* <h4>{props.language}</h4> */}
                                 </div>
                             </div>
                             <div className="compileresult_main_center">
