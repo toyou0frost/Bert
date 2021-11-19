@@ -23,7 +23,7 @@ const CompileResultStyle = styled.div`
     .compileresult_main_top > :first-child > h4{
         letter-spacing: 1.5px;
         border-radius: 7px 7px 0 0;
-        padding: 0.5vh 3.5vh;
+        padding: 1vh 3.5vh;
         color: white;
         background-color: #676767;
         box-shadow: 5px 5px 5px black;
@@ -31,7 +31,7 @@ const CompileResultStyle = styled.div`
     .compileresult_main_top > :last-child > h4{
         letter-spacing: 1.5px;
         border-radius: 7px 7px 0 0;
-        padding: 0.5vh 3.5vh;
+        padding: 1vh 3.5vh;
         color: white;
         background-color: #676767;
         box-shadow: 5px 5px 5px black;
