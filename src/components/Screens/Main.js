@@ -71,9 +71,11 @@ function Main() {
     if(document.getElementById("data").value === ""){
       return
     }
+    // 71 ~ 73 검색어에 null 값이 들어오면 바로 return
     setSearchInput(document.getElementById("data").value);
     setIsSearch(true);
   }
+  // 66 ~ 77 검색 버튼을 누르면 검색 API로 전달하게 해주는 함수 
 
   useEffect(() => {
     const input = document.getElementById("data");
@@ -85,11 +87,11 @@ function Main() {
     }
     });
   })
-
+  // 80 ~ 89 엔터키 입력시 자동으로 검색이 되게하는 함수 
   const Main_Page = () => {
     setIsSearch(false);
   }
-
+  // 91 ~ 93 검색하기 전 상태로 되돌리는 함수
   return (
     <div className="Main">
       <MainStyle>
@@ -113,6 +115,7 @@ function Main() {
         {isSearch === true ? <GoogleSearchAPI getSearchInput={searchInput} /> : ''}
         </MainStyle>
     </div>
+    // 96 ~ 117 삼항 연산자를 사용하여 검색 여부에 따라 보여지는 화면이 다르게 하는 코드
   );
 }
 

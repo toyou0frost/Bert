@@ -17,7 +17,8 @@ const ShowSearchResult = (props) => {
             }
         }
     }
-    useEffect(() => { // useEffect 실행 후 다시 처음부터 코드가 실행됨
+    // 10 ~ 19 서치 API 에서 htmlSnippet의 값이 없는경우가 있어서 그 경우 null을 채워넣는 코드
+    useEffect(() => {
         if(props.searchdata !== undefined){
             setIsGet(true);    
         }
@@ -25,12 +26,13 @@ const ShowSearchResult = (props) => {
             setIsGet(false);
         }
     },[props])
-
+    // 21 ~ 28 검색 결과를 다 받지 못하였다면 데이터를 전달하지 않고 온전한 결과를 다 받아야 데이터를 넘겨주는 함수
     return(
         <div>
             {idx.map((tmp, idx) => (
                 isGet === true ? <SearchForm htmlTitle={props.searchdata[idx].htmlTitle} htmlSnippet={htmlSnippet[idx]} link={props.searchdata[idx].link}    /> : ""                
             ))}
+            {/* 32 ~ 34 반복문을 사용하여 총 10개의 데이터를 전달하고 나타내는 코드 */}
         </div>
     )
 }

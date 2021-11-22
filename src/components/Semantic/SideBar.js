@@ -34,6 +34,7 @@ const SideBar = () => {
         setIsClick(false);
         OnClick(language)
     }
+    // 31 ~ 36 종료 버튼을 누를 시 코드 에디터를 종료하는 함수 
 
     const OnClick = (language) => {
         setIsClick(true);
@@ -41,6 +42,7 @@ const SideBar = () => {
         setLanguage(language);
         document.getElementsByClassName("sidebar_main")[0].style.background = "linear-gradient(#1e1e1e 70%, #676767 30%)";
     }
+    // 39 ~ 44 아이콘을 클릭하면 해당 언어를 코드 에디터에 전달하고 코드 에디터를 보여지게하는 함수 
 
     return (
         <SideBarStyle className="SideBar">   
@@ -57,6 +59,7 @@ const SideBar = () => {
                         <li title="Python" onClick={() => {exit("python")}}><img className="icon" src="img/PYTHONIcon.png" alt="python" /></li>
                         <li title="Ruby" onClick={() => {exit("ruby")}}><img className="icon" src="img/RUBYIcon.png" alt="ruby" /></li>
                         <li title="R" onClick={() => {exit("r")}}><img className="icon" src="img/RIcon.png" alt="r" /></li>
+                        {/* 52 ~ 61 각 언어에 맞는 데이터를 전달하는 코드 */}
                     </ul>
                 </div>
         </SideBarStyle>

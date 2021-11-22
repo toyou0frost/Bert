@@ -102,7 +102,7 @@ const CodeEditor = (props) => {
             setIsGet(true);
         }
     }, [isGo])
-
+    // 100 ~ 104 컴파일 API에서 데이터를 받아오면 작동하는 함수
     function handleEditorDidMount(editor, monaco) {
         editorRef.current = editor; 
     }
@@ -113,13 +113,13 @@ const CodeEditor = (props) => {
         setIsClick(true);
         setCompile(true);
     }
-
+    // 106 ~ 115 monaco 에디터에서 사용자가 입력한 값을 가져오는 함수
     function exit(){
         document.getElementsByClassName("sidebar_main")[0].style.background = "linear-gradient(#525252 50%, #525252 50%)";
         props.setIsExit(true);
         props.setIsClick(false);
     }
-
+    // 117 ~ 121 종료 버튼을 누르면 코드 에디터가 꺼지는 함수
     return(
         <div className="CodeEditor">
             {props.isExit === false ? 
@@ -168,6 +168,7 @@ const CodeEditor = (props) => {
             </div>
             : ""}
         </div>
+        // 124 ~ 170 삼항 연산자를 활용하여 데이터의 존재 여부에 따라 보여지는 html이 달라지가 해주는 코드
     )
 }
 

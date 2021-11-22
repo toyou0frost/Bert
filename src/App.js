@@ -32,6 +32,7 @@ function App() {
               <SideBar />
             </StickyBox>
           </div>
+          {/* 30 ~ 34 sticky 속성을 간단하게 적용시켜주는 라이브러리 */}
         </div>
       </AppStyle>
     </div>
