@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const CompilerAPI = (props) => {
-    const CLIENT_SECRET = "9b4dc5ea7d6969c91aaafb57c7b5307a2047c4db";
+    const CLIENT_SECRET = "975b7bfeb02adc03ae84a725c45c50e9282aed16";
     let LANG = "JAVASCRIPT_NODE";
     const SOURCE = props.source;
     props.setIsClick(false);
