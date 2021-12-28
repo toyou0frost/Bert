@@ -8,6 +8,8 @@ import Folder from './components/Screens/Folder';
 import SideBarf from './components/Semantic/SideBarf';
 import Header from './components/Semantic/Header';
 import CodeEditorf from './components/Function/CodeEditorf';
+import app from './firebase';
+import { useEffect, useState } from 'react/cjs/react.development';
 
 const AppStyle = styled.div`
   *{
@@ -31,8 +33,21 @@ const AppStyle = styled.div`
 `
 
 function App() {
+  const [code, setCode] = useState("");
+  const [lang, setLang] = useState("");
+  const [s_id, setS_Id] = useState("");
+
+  useEffect(() => {
+    // console.log("code change");
+  }, [code])
+
+  useEffect(() => {
+    console.log("s_id change", s_id);
+  }, [s_id])
+
   return (
     <div>
+      <app />
       <AppStyle>
         <Router>
           <Switch>
@@ -59,10 +74,10 @@ function App() {
                   </StickyBox>
                 </div>
                 <div className="app_main_Main">
-                  <Folder />
+                  <Folder setLang={setLang} setCode={setCode} setLang={setLang} setS_Id={setS_Id} s_id={s_id}/>
                 </div>
                 <div className='app_main_editor'>
-                  <CodeEditorf language="javascript" isExit={false} />
+                  <CodeEditorf language="javascript" isExit={false} code={code} lang={lang} s_id={s_id} />
                 </div>
                 {/* 30 ~ 34 sticky 속성을 간단하게 적용시켜주는 라이브러리 */}
               </div>

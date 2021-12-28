@@ -1,6 +1,7 @@
 import React, { useState ,useRef, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import styled from "styled-components";
+import { getDatabase, ref, set, update, child, get} from "firebase/database";
 
 import CompilerAPI from "../GetAPI/CompilerAPI";
 
@@ -86,8 +87,8 @@ const CompileResultStyle = styled.div`
         background-color: rgba(179, 97, 97, 0.7);
     }
 `
-
 const CodeEditorf = (props) => {
+    const [codevalue, setCodevalue] = useState("");
     const [result, setResult] = useState();
     const [value, setValue] = useState("");
     const [isClick, setIsClick] = useState(false);
@@ -102,7 +103,24 @@ const CodeEditorf = (props) => {
             setIsGet(true);
         }
     }, [isGo])
+
+    useEffect(() => {
+        const db = getDatabase();
+        update(ref(db, `/project/${props.s_id}`), {
+            [props.code]: value,
+            [props.lang]: props.language,
+        });
+    }, [value])
     // 100 ~ 104 컴파일 API에서 데이터를 받아오면 작동하는 함수
+    
+    useEffect(() => {
+        getCodeValue();
+    }, [props.code])
+
+    useEffect(() => {
+        console.log("codevalue change", codevalue);
+    }, [codevalue])
+    console.log(codevalue);
     function handleEditorDidMount(editor, monaco) {
         editorRef.current = editor; 
     }
@@ -119,8 +137,26 @@ const CodeEditorf = (props) => {
         props.setIsExit(true);
         props.setIsClick(false);
     }
-    console.log(props.isExit)
     // 117 ~ 121 종료 버튼을 누르면 코드 에디터가 꺼지는 함수
+
+    const getCodeValue = () => {
+        const dbRef = ref(getDatabase());
+        get(child(dbRef, `project/${props.s_id}/${props.code}`))
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                if(snapshot.val() !== "Object"){
+                    setCodevalue(snapshot.val());
+                    console.log(codevalue);
+                }
+            } else {
+                console.log("No data available");
+            }
+            })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
     return(
         <div className="CodeEditor">
             {props.isExit === false ? 
@@ -129,6 +165,7 @@ const CodeEditorf = (props) => {
                 height="55vh"
                 width="65vw"
                 language={props.language}
+                value={codevalue}
                 line="2"
                 theme="vs-dark"
                 options={{
